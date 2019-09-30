@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %} Test Block {% endblock %}
+
+{% block body %}
+
+<section class="probootstrap-slider flexslider2 page-inner">
+    <div class="overlay"></div>
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="page-title probootstrap-animate">
+              <div class="probootstrap-breadcrumbs">
+                <a href="#">Home</a><span><a href="{% url 'accounts:register' %}">Register</a></span>
+              </div>
+              <h1>Heart attack prediction</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url(img/slider_1.jpg);"></li>
+      <li style="background-image: url(img/slider_4.jpg);"></li>
+      <li style="background-image: url(img/slider_2.jpg);"></li>
+    </ul>
+  </section>
+  <!--End of slider-->
+{% if user.is_authenticated %}
+<section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <form  method="post" class="">
+            {% csrf_token %}
+           {% bootstrap_form test_form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    {% endbuttons %}
+          </form>
+          {% if answer %}
+            <h2> The chance of having a Heart Attack is: {{answer}}%</h2>
+          {% endif %}
+      </div>
+  </div>
+</div>
+</section>
+{% else %}
+<h1> <a href="{% url 'accounts:login' %}">Login Here</a></h1>
+{% endif %}
+{% endblock %}
+
