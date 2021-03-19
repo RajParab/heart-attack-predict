@@ -3,7 +3,7 @@ bootstrap4==0.1.0
 Django==2.2.5
 django-bootstrap4==1.0.1
 django-rest-framework==0.1.0
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 joblib==0.13.2
 numpy==1.17.2
 pandas==0.25.1
